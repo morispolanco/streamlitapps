@@ -38,52 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Formulario de contacto
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obtener los datos del formulario
-            const formData = new FormData(contactForm);
-            let formValues = {};
-            
-            for (let [key, value] of formData.entries()) {
-                formValues[key] = value;
-            }
-            
-            // Preparar los datos para enviar por email
-            const templateParams = {
-                from_name: formValues.name,
-                from_email: formValues.email,
-                from_phone: formValues.phone || 'No proporcionado',
-                message: formValues.message,
-                to_email: 'streamlitapps@gmail.com'
-            };
-            
-            // Mostrar mensaje de carga
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            // Enviar el email usando EmailJS
-            emailjs.send('service_id', 'template_id', templateParams, 'user_id')
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente.');
-                    contactForm.reset();
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Lo sentimos, hubo un error al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente por email.');
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
-                });
-        });
-    }
+    // El formulario de contacto ha sido eliminado
     
     // Animación de elementos al hacer scroll
     function animateOnScroll() {
