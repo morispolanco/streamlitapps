@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Streamlit Apps",
+  "url": "https://streamlitapps.com",
+  "logo": "https://streamlitapps.com/logo.svg",
+  "description": "En Streamlit Apps, creamos software a la medida que impulsa tu éxito con tecnologías como Streamlit, IA, React, Next.js, TypeScript y WordPress.",
+  "email": "streamlitapps@gmail.com",
+  "telephone": "+50237648910",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Guatemala"
+  },
+  "sameAs": [
+    "https://twitter.com/streamlitapps",
+    "https://linkedin.com/company/streamlitapps"
+  ],
+  "offers": {
+    "@type": "AggregateOffer",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Aplicaciones con IA y Streamlit",
+        "description": "Desarrollamos herramientas interactivas y potentes impulsadas por modelos de lenguaje de vanguardia, perfectas para análisis de datos, automatización y más."
+      },
+      {
+        "@type": "Offer",
+        "name": "Desarrollo web avanzado",
+        "description": "Creamos landing pages y sitios web completos en WordPress, optimizados para cualquier industria o proyecto personal."
+      },
+      {
+        "@type": "Offer",
+        "name": "Frontend de última generación",
+        "description": "Aplicaciones rápidas y escalables con React, Next.js y TypeScript, diseñadas para una experiencia de usuario impecable."
+      },
+      {
+        "@type": "Offer",
+        "name": "Software personalizado",
+        "description": "Desde startups hasta grandes empresas, construimos soluciones que resuelven tus desafíos específicos."
+      }
+    ]
+  }
+}
