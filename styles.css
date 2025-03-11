@@ -409,11 +409,7 @@ a:hover {
     background-color: #f8f9fa;
 }
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 50px;
-}
+/* Contact grid styles removed */
 
 .contact-info {
     display: flex;
@@ -549,9 +545,7 @@ a:hover {
         margin: 0 auto 20px;
     }
     
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+    /* Contact grid media query removed */
 }
 
 @media (max-width: 576px) {
@@ -581,7 +575,5 @@ a:hover {
         font-size: 1.5rem;
     }
     
-    .contact-form {
-        padding: 30px 20px;
-    }
+    /* Contact form media query removed */
 }
