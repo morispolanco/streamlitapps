@@ -45,8 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Aquí se podría implementar la lógica para enviar el formulario
-            // Por ahora, solo mostraremos un mensaje de éxito
+            // Obtener los datos del formulario
             const formData = new FormData(contactForm);
             let formValues = {};
             
@@ -54,11 +53,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 formValues[key] = value;
             }
             
-            // Simulación de envío
-            setTimeout(() => {
-                alert('¡Gracias por contactarnos! Te responderemos a la brevedad.');
-                contactForm.reset();
-            }, 1000);
+            // Preparar los datos para enviar por email
+            const templateParams = {
+                from_name: formValues.name,
+                from_email: formValues.email,
+                from_phone: formValues.phone || 'No proporcionado',
+                message: formValues.message,
+                to_email: 'streamlitapps@gmail.com'
+            };
+            
+            // Mostrar mensaje de carga
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            // Enviar el email usando EmailJS
+            emailjs.send('service_id', 'template_id', templateParams, 'user_id')
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente.');
+                    contactForm.reset();
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Lo sentimos, hubo un error al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente por email.');
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
         });
     }
     
